@@ -10,7 +10,7 @@ import path from "path";
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "*" , credentials: true }));
+app.use(cors({ origin: "https://musical-bunny-004603.netlify.app/" , credentials: true }));
 app.use(express.json());
 
 app.use(
@@ -47,7 +47,7 @@ app.get("/auth/google/callback", async (req, res) => {
     console.log("✅ Access Token:", tokens.access_token);
     console.log("✅ Refresh Token:", tokens.refresh_token || "Not Provided");
 
-    res.redirect("http://localhost:3000"); // Redirect back to frontend
+    res.redirect("https://musical-bunny-004603.netlify.app/"); // Redirect back to frontend
   } catch (error) {
     console.error("OAuth Callback Error:", error);
     res.status(500).send("Authentication failed.");
